@@ -1,47 +1,30 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+  import TopNav from '@/components/TopNav.vue'
+  import SidebarLeft from '@/components/SidebarLeft.vue'
+  import SidebarRight from '@/components/SidebarRight.vue'
+  import BuilderContent from '@/components/BuilderContent.vue'
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
-  </header>
-
-  <main>
-    <TheWelcome />
-  </main>
+  <div class="page-wrapper">
+    <TopNav />
+    <main>
+      <SidebarLeft />
+      <BuilderContent />
+      <SidebarRight :toggle-editor="false" />
+    </main>
+  </div>
 </template>
 
 <style scoped>
-header {
-  line-height: 1.5;
-}
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-@media (min-width: 1024px) {
-  header {
+  .page-wrapper {
     display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
+    flex-direction: column;
+    height: 100vh;
   }
 
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
+  main {
     display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
+    flex: 1;
   }
-}
 </style>
