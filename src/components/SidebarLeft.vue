@@ -1,12 +1,22 @@
 <script setup lang="ts">
-  import TextElement from '@/components/TextElement.vue'
-  import ImageElement from '@/components/ImageElement.vue'
+  import draggable from 'vuedraggable'
+  import SimpleBlock from '@/components/SimpleBlock.vue'
+  import type { BlockSimple }  from '@/types'
+
+  const blockList = [
+    { type: 'text', content: 'Text Block' },
+    { type: 'image', content: 'Image Block' }
+  ]
+
 </script>
 
 <template>
   <aside>
-    <TextElement />
-    <ImageElement />
+    <draggable :list="blockList" :element="'div'" :group="{ name: 'blocks', pull: 'clone', put: false }" :clone="(item: BlockSimple) => ({ ...item })" :sort="false" item-key="index">
+      <template #item="{element}">
+        <simple-block :blockType="element.type" :content="element.content" />
+      </template>
+    </draggable>
   </aside>
 </template>
 
