@@ -19,8 +19,8 @@
         src: '../assets/images/image-1.webp',
         alt: 'An image depicting a neon hello sign.',
         caption: 'Testing the alignment of a long caption. Testing the alignment of a long caption.',
-        width: 100,
-        align: 'right',
+        width: 50,
+        align: 'left',
         padding: 50
       } 
     }

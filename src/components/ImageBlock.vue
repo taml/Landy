@@ -30,11 +30,6 @@
     flex-direction: column;
   }
 
-  header {
-    display: flex;
-    justify-content: flex-end;
-  }
-
   .align-left {
     justify-content: flex-start;
   }
