@@ -1,10 +1,10 @@
 <script setup lang="ts">
   import { computed } from 'vue'
 
-  const props = defineProps({
-    blockType: String,
-    content: String
-  })
+  const props = defineProps<{
+    blockType: string,
+    name: string
+  }>()
 
   const iconType = computed(() => {
     return props.blockType === 'text' ? 'i-cursor' : 'image'
@@ -16,8 +16,8 @@
 </script>
 
 <template>
-  <div>
-    <font-awesome-icon :icon="['fas', iconType]" :aria-label="ariaLabel" /> <p>{{ content }}</p>
+  <div role="listitem">
+    <font-awesome-icon :icon="['fas', iconType]" :aria-label="ariaLabel" /> <p>{{ name }}</p>
   </div>
 </template>
 

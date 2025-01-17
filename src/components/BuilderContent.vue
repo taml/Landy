@@ -15,8 +15,8 @@
     <div class="builder-content">
       <p v-if="contentBlockList.length === 0">Builder Content</p>
       <draggable class="drop-area" :list="contentBlockList" :element="'div'" :group="{ name: 'blocks', pull: false, put: true }" item-key="index">
-        <template #item="{element}">
-          <component :is="element?.type === 'text' ? TextElement : ImageElement" />
+        <template #item="{element, index}">
+          <component :is="element?.type === 'text' ? TextElement : ImageElement" v-bind="element" :index="index" />
         </template>
       </draggable>
     </div>

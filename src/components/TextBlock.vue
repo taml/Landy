@@ -1,12 +1,19 @@
+<script setup lang="ts">
+  import type { ImageBlock } from '@/types'
+  import BlockHeader from '@/components/BlockHeader.vue'
+
+  const props = defineProps<{
+    content: ImageBlock
+    index: number
+  }>()
+</script>
+
 <template>
-  <div>
-    <font-awesome-icon :icon="['fas', 'i-cursor']" aria-label="An icon depicting a text." /> <p>Text Element</p>
-  </div>
+  <section>
+    <BlockHeader :block-index="index" />
+  </section>
 </template>
   
 <style scoped>
-  div {
-    display: flex;
-    padding: 20px;
-  }
+  
 </style>

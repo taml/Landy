@@ -1,20 +1,38 @@
 <script setup lang="ts">
   import draggable from 'vuedraggable'
   import SimpleBlock from '@/components/SimpleBlock.vue'
-  import type { BlockSimple }  from '@/types'
+  import type { BlockElement }  from '@/types'
 
   const blockList = [
-    { type: 'text', content: 'Text Block' },
-    { type: 'image', content: 'Image Block' }
+    { 
+      type: 'text', 
+      name: 'Text Block',
+      content: {
+        text: '',
+        textSize: 16,
+      }
+    },
+    { 
+      type: 'image', 
+      name: 'Image Block', 
+      content: {
+        src: '../assets/images/image-1.webp',
+        alt: 'An image depicting a neon hello sign.',
+        caption: 'Testing the alignment of a long caption. Testing the alignment of a long caption.',
+        width: 100,
+        align: 'right',
+        padding: 50
+      } 
+    }
   ]
 
 </script>
 
 <template>
   <aside>
-    <draggable :list="blockList" :element="'div'" :group="{ name: 'blocks', pull: 'clone', put: false }" :clone="(item: BlockSimple) => ({ ...item })" :sort="false" item-key="index">
+    <draggable :list="blockList" :element="'div'" :group="{ name: 'blocks', pull: 'clone', put: false }" :clone="(item: BlockElement) => ({ ...item })" :sort="false" item-key="index" role="list">
       <template #item="{element}">
-        <simple-block :blockType="element.type" :content="element.content" />
+        <simple-block :blockType="element.type" :name="element.name" />
       </template>
     </draggable>
   </aside>
