@@ -6,8 +6,8 @@ import App from './App.vue'
 
 import { library } from "@fortawesome/fontawesome-svg-core"
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome"
-import { faImage, faICursor, faChevronUp, faChevronDown, faClone, faTrashCan } from "@fortawesome/free-solid-svg-icons"
-library.add(faImage, faICursor, faChevronUp, faChevronDown, faClone, faTrashCan)
+import { faImage, faICursor, faChevronUp, faChevronDown, faClone, faTrashCan, faAlignLeft, faAlignCenter, faAlignRight } from "@fortawesome/free-solid-svg-icons"
+library.add(faImage, faICursor, faChevronUp, faChevronDown, faClone, faTrashCan, faAlignLeft, faAlignCenter, faAlignRight)
 
 const app = createApp(App)
 
