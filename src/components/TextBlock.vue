@@ -1,16 +1,23 @@
 <script setup lang="ts">
-  import type { ImageBlock } from '@/types'
+  import { useBuilderStore } from '@/stores/builder'
+  import type { TextBlock } from '@/types'
   import BlockHeader from '@/components/BlockHeader.vue'
 
-  const props = defineProps<{
-    content: ImageBlock
+  defineProps<{
+    content: TextBlock
     index: number
   }>()
+
+  const builderStore = useBuilderStore()
+  const { setBlock } = builderStore
+
 </script>
 
 <template>
-  <section>
+  <section @click="setBlock(index)">
     <BlockHeader :block-index="index" />
+    <p v-if="content.text.length === 0 || content.text === '<p><br></p>'">Your text content will be inserted here!</p>
+    <div v-html="content.text"></div>
   </section>
 </template>
   
@@ -20,5 +27,5 @@
     flex-direction: column;
     padding: 20px;
   }
-  
+
 </style>

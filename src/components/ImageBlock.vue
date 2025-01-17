@@ -1,5 +1,6 @@
 <script setup lang="ts">
   import { computed } from 'vue'
+  import { useBuilderStore } from '@/stores/builder'
   import type { ImageBlock } from '@/types'
   import BlockHeader from '@/components/BlockHeader.vue'
 
@@ -8,12 +9,15 @@
     index: number
   }>()
 
+  const builderStore = useBuilderStore()
+  const { setBlock } = builderStore
+
   const imageSrc = computed(() => new URL(props.content.src, import.meta.url).href)
 
 </script>
 
 <template>
-  <section>
+  <section @click="setBlock(index)">
     <BlockHeader :block-index="index" />
     <figure :class="`align-${content.align}`" :style="`padding: ${content.padding}px;`">
       <div :style="`width: ${content.width}%;`">

@@ -32,7 +32,7 @@
   <aside>
     <draggable :list="blockList" :element="'div'" :group="{ name: 'blocks', pull: 'clone', put: false }" :clone="(item: BlockElement) => ({ ...item })" :sort="false" item-key="index" role="list">
       <template #item="{element}">
-        <simple-block :blockType="element.type" :name="element.name" />
+        <SimpleBlock :blockType="element.type" :name="element.name" />
       </template>
     </draggable>
   </aside>

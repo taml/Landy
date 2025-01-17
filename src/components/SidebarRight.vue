@@ -1,12 +1,22 @@
 <script setup lang="ts">
+  import { storeToRefs } from 'pinia'
+  import { useBuilderStore } from '@/stores/builder'
+  import TextBlockEditor from '@/components/TextBlockEditor.vue'
+  import ImageBlockEditor from '@/components/ImageBlockEditor.vue'
+
   defineProps({
     toggleEditor: Boolean
   })
+
+  const builderStore = useBuilderStore()
+  const { block } = storeToRefs(builderStore)
+
 </script>
 
 <template>
   <aside :class="toggleEditor && 'hide-editor'">
-    <p>Right Sidebar</p>
+    <TextBlockEditor v-if="block?.type === 'text'" />
+    <ImageBlockEditor v-else-if="block?.type === 'image'" />
   </aside>
 </template>
 

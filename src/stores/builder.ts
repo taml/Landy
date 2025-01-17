@@ -5,12 +5,11 @@ import type { BlockElement, TextBlock, ImageBlock } from '@/types'
 export const useBuilderStore = defineStore('builder', () => {
   // Initialise an empty list of content blocks
   const contentBlockList = ref<Array<BlockElement>>([])
-  const blockId = ref(-1)
+  // Initialise a block variable for a single block item
+  const block = ref<BlockElement | null>(null)
+  // Initialise a selected block index variable 
+  const blockIndex = ref(-1)
 
-  // Get a single block at the provided index from the list
-  const getBlock = computed(() => {
-    return (index: number) => contentBlockList.value[index]
-  })
 
   // Move a block at the provided index up by one position in the list
   const moveBlockUp = (index: number) => {
@@ -39,11 +38,17 @@ export const useBuilderStore = defineStore('builder', () => {
     contentBlockList.value.splice(index, 1)
   }
 
+  // Set the contents of a single block item found at the provided index of the block list
+  const setBlock = (index: number) => {
+    blockIndex.value = index
+    block.value = contentBlockList.value[index]
+  }
+
   // Update a block at the provided index and content 
   const updateBlock = (index: number, content: TextBlock | ImageBlock) => {
     contentBlockList.value[index].content = content
   }
 
 
-  return { contentBlockList, blockId, getBlock, moveBlockUp, moveBlockDown, duplicateBlock, deleteBlock, updateBlock }
+  return { contentBlockList, block, blockIndex, moveBlockUp, moveBlockDown, duplicateBlock, deleteBlock, setBlock, updateBlock }
 })
