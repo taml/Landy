@@ -1,8 +1,14 @@
 <script setup lang="ts">
+  import { storeToRefs } from 'pinia'
+  import { useBuilderStore } from '@/stores/builder'
   import TopNav from '@/components/TopNav.vue'
   import SidebarLeft from '@/components/SidebarLeft.vue'
   import SidebarRight from '@/components/SidebarRight.vue'
   import BuilderContent from '@/components/BuilderContent.vue'
+  import SaveModal from '@/components/SaveModal.vue'
+
+  const builderStore = useBuilderStore()
+  const { showSaveModal } = storeToRefs(builderStore)
 </script>
 
 <template>
@@ -13,6 +19,7 @@
       <BuilderContent />
       <SidebarRight :toggle-editor="false" />
     </main>
+    <SaveModal v-if="showSaveModal" />
   </div>
 </template>
 

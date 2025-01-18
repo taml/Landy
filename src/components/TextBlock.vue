@@ -9,12 +9,12 @@
   }>()
 
   const builderStore = useBuilderStore()
-  const { setBlock } = builderStore
+  const { setSingleBlock } = builderStore
 
 </script>
 
 <template>
-  <section @click="setBlock(index)">
+  <section @click="setSingleBlock(index)">
     <BlockHeader :block-index="index" />
     <p v-if="content.text.length === 0 || content.text === '<p><br></p>'">Your text content will be inserted here!</p>
     <div v-html="content.text"></div>

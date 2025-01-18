@@ -1,4 +1,4 @@
-import { ref, computed } from 'vue'
+import { ref } from 'vue'
 import { defineStore } from 'pinia'
 import type { BlockElement, TextBlock, ImageBlock } from '@/types'
 
@@ -9,6 +9,10 @@ export const useBuilderStore = defineStore('builder', () => {
   const block = ref<BlockElement | null>(null)
   // Initialise a selected block index variable 
   const blockIndex = ref(-1)
+  // Initialise a colour for the template background
+  const backgroundColor = ref('#FFFFFF')
+  // Initialise a variable to control the toggle of a save modal
+  const showSaveModal = ref(false)
 
 
   // Move a block at the provided index up by one position in the list
@@ -33,13 +37,17 @@ export const useBuilderStore = defineStore('builder', () => {
     contentBlockList.value.splice(index, 0, block)
   }
 
-  // Delete a block at the provided index
+  // Delete a block at the provided index from the block list and reset single block item
   const deleteBlock = (index: number) => {
+    if(index === blockIndex.value) {
+      block.value = null
+      blockIndex.value = -1
+    }
     contentBlockList.value.splice(index, 1)
   }
 
   // Set the contents of a single block item found at the provided index of the block list
-  const setBlock = (index: number) => {
+  const setSingleBlock = (index: number) => {
     blockIndex.value = index
     block.value = contentBlockList.value[index]
   }
@@ -49,6 +57,18 @@ export const useBuilderStore = defineStore('builder', () => {
     contentBlockList.value[index].content = content
   }
 
+  // Set a colour for the background of the landing page template
+  const setBackgroundColor = (color: string) => {
+    backgroundColor.value = color
+  }
 
-  return { contentBlockList, block, blockIndex, moveBlockUp, moveBlockDown, duplicateBlock, deleteBlock, setBlock, updateBlock }
+  const toggleSaveModal = (showModal: boolean) => {
+    showSaveModal.value = showModal
+  }
+
+
+  return { 
+    contentBlockList, block, blockIndex, backgroundColor, showSaveModal,
+    moveBlockUp, moveBlockDown, duplicateBlock, deleteBlock, setSingleBlock, updateBlock, setBackgroundColor, toggleSaveModal 
+  }
 })

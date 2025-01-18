@@ -6,15 +6,22 @@
   import { useBuilderStore } from '@/stores/builder'
 
   const builderStore = useBuilderStore()
-  const { contentBlockList } = storeToRefs(builderStore)
+  const { contentBlockList, backgroundColor } = storeToRefs(builderStore)
+  const { setSingleBlock } = builderStore
+
+  const updateEditor = (event: any) => {
+    if(event.added) {
+      setSingleBlock(event.added.newIndex)
+    }
+  }
 
 </script>
 
 <template>
   <div class="builder-container">
-    <div class="builder-content">
+    <div class="builder-content" :style="`background: ${backgroundColor};`">
       <p v-if="contentBlockList.length === 0">Builder Content</p>
-      <draggable class="drop-area" :list="contentBlockList" :element="'div'" :group="{ name: 'blocks', pull: false, put: true }" item-key="index">
+      <draggable class="drop-area" :list="contentBlockList" :element="'div'" :group="{ name: 'blocks', pull: false, put: true }" @change="updateEditor" item-key="index">
         <template #item="{element, index}">
           <component :is="element?.type === 'text' ? TextElement : ImageElement" v-bind="element" :index="index" />
         </template>
@@ -28,14 +35,13 @@
     display: flex;
     flex-direction: column;
     flex: 2;
-    background-color: #f0f0f0;
+    background: #f0f0f0;
     padding: 40px;
     height: 92vh;
     overflow-y: auto
   }
 
   .builder-content {
-    background: #ffffff;
     border-radius: 10px;
     flex: 1 1;
   }

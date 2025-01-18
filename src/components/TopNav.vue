@@ -1,6 +1,11 @@
 <script setup lang="ts">
+  import { useBuilderStore } from '@/stores/builder'
+
+  const builderStore = useBuilderStore()
+  const { toggleSaveModal } = builderStore
+
   const handleSavePage = () => {
-    console.log('Save Page')
+    toggleSaveModal(true)
   }
 </script>
 

@@ -10,14 +10,14 @@
   }>()
 
   const builderStore = useBuilderStore()
-  const { setBlock } = builderStore
+  const { setSingleBlock } = builderStore
 
   const imageSrc = computed(() => new URL(props.content.src, import.meta.url).href)
 
 </script>
 
 <template>
-  <section @click="setBlock(index)">
+  <section @click="setSingleBlock(index)">
     <BlockHeader :block-index="index" />
     <div :class="['image-container', `align-${content.align}`]" :style="`padding: ${content.padding}px;`">
       <figure :style="`width: ${content.width}%;`">
