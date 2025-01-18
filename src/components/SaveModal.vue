@@ -107,6 +107,7 @@
   }
 
   .modal-body input {
+    background: #f3f6f8;
     border: 2px solid #846EFF;
     border-radius: 8px;
     color: #5b6875;

@@ -47,10 +47,10 @@
     max-width: 220px;
   }
 
-  @media screen and (max-width: 700px) {
+  @media screen and (max-width: 750px) {
     aside {
       max-width: 90px;
-      height: calc(100% - 57px);
+      height: calc(100% - 58px);
       position: absolute;
       left: 0;
       background: transparent;
@@ -70,7 +70,7 @@
     margin-top: 15px;
   }
 
-  @media screen and (max-width: 700px) {
+  @media screen and (max-width: 750px) {
     .heading {
       display: none;
     }

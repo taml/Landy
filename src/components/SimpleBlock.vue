@@ -45,7 +45,7 @@
     margin-left: 5px;
   }
 
-  @media screen and (max-width: 700px) {
+  @media screen and (max-width: 750px) {
     .simple-block-text {
       display: none;
     }

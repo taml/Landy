@@ -1,7 +1,7 @@
 <script setup lang="ts">
-  import { ref } from 'vue'
   import { storeToRefs } from 'pinia'
   import { useBuilderStore } from '@/stores/builder'
+  import PageColorPicker from '@/components/PageColorPicker.vue'
   import TextBlockEditor from '@/components/TextBlockEditor.vue'
   import ImageBlockEditor from '@/components/ImageBlockEditor.vue'
 
@@ -10,20 +10,14 @@
   })
 
   const builderStore = useBuilderStore()
-  const { block, backgroundColor } = storeToRefs(builderStore)
-  const { setBackgroundColor } = builderStore
-
-  const customColor = ref(backgroundColor.value)
+  const { block } = storeToRefs(builderStore)
 
 </script>
 
 <template>
   <aside :class="toggleEditor && 'hide-editor'">
-    <p>Page Background Colour</p>
-    <div class="color-option">
-      <span class="color-circle"><input type="color" v-model="customColor" @change="setBackgroundColor(customColor)"/></span>
-      <p>{{ backgroundColor }}</p>
-    </div>
+    <h5 class="heading">Page Settings</h5>
+    <PageColorPicker />
     <TextBlockEditor v-if="block?.type === 'text'" />
     <ImageBlockEditor v-else-if="block?.type === 'image'" />
   </aside>
@@ -31,14 +25,18 @@
 
 <style scoped>
   aside {
-    background-color: #ffffff;
     flex: 1;
+    background-color: #D9E5F3;
+    padding: 15px;
+    max-width: 400px;
+    height: 100vh;
+    overflow-y: auto;
   }
 
-  @media screen and (max-width: 700px) {
+  @media screen and (max-width: 750px) {
     aside {
       width: 70%;
-      height: 100%;
+      height: calc(100% - 58px);
       position: absolute;
       right: 0;
       z-index: 2;
@@ -49,39 +47,14 @@
     max-width: 0;
   }
 
-  .color-option {
-    width: 80px;
-    text-align: center;
-  }
-
-  .color-option input {
-    border-radius: 50%;
-    height: 40px;
-    width: 40px;
-    border: none;
-    outline: none;
-    padding: 0;
-    cursor: pointer;
-  }
-
-  .color-circle {
-    display: block;
-    height: 40px;
-    width: 40px;
-    border-radius: 50px;
-    margin-left: auto;
-    margin-right: auto;
-    border: 1px solid #e9eff4;
-    box-shadow: 0px 0px 14px rgba(33, 48, 79, 0.10);
-  }
-
-  input::-webkit-color-swatch-wrapper {
-    padding: 0; 
-  }
-
-  input[type="color"]::-webkit-color-swatch {
-    border: none;
-    border-radius: 100%;
+  .heading {
+    color: #394452;
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-top: 15px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #cdd4db;
   }
 
 </style>
