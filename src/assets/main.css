@@ -4,3 +4,13 @@
   max-height: 100vh;
   overflow-y: hidden;
 }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 600;
+}
+
+p, a, ul, ol, li, button, input {
+  font-family: 'Merriweather Sans', sans-serif;
+  font-weight: 400;
+}

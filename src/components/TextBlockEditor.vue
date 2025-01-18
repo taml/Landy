@@ -33,7 +33,8 @@
         modules: {
           toolbar: [
             [{ 'header': [1, 2, 3, false] }],
-            ['bold', 'italic', 'underline', 'link']
+            ['bold', 'italic', 'underline', 'link'],
+            [{ align: [] }]
           ]
         }
       })

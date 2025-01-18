@@ -3,13 +3,13 @@
   import SimpleBlock from '@/components/SimpleBlock.vue'
   import type { BlockElement }  from '@/types'
 
+  // Construct a default template for the two different block types, text block and image block
   const blockList = [
     { 
       type: 'text', 
       name: 'Text Block',
       content: {
         text: '',
-        textSize: 16,
       }
     },
     { 
@@ -29,7 +29,8 @@
 </script>
 
 <template>
-  <aside>
+  <aside aria-label="Block menu.">
+    <h6 class="heading">Block Picker</h6>
     <draggable :list="blockList" :element="'div'" :group="{ name: 'blocks', pull: 'clone', put: false }" :clone="(item: BlockElement) => ({ ...item })" :sort="false" item-key="index" role="list">
       <template #item="{element}">
         <SimpleBlock :blockType="element.type" :name="element.name" />
@@ -40,19 +41,38 @@
 
 <style scoped>
   aside {
-    background-color: #ffffff;
     flex: 1;
+    background-color: #D9E5F3;
+    padding: 15px;
     max-width: 220px;
   }
 
   @media screen and (max-width: 700px) {
     aside {
-      max-width: 60px;
-      height: 100%;
+      max-width: 90px;
+      height: calc(100% - 57px);
       position: absolute;
       left: 0;
       background: transparent;
       z-index: 1;
+    }
+
+    .heading {
+      display: none;
+    }
+  }
+
+  .heading {
+    color: #394452;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-top: 15px;
+  }
+
+  @media screen and (max-width: 700px) {
+    .heading {
+      display: none;
     }
   }
 </style>

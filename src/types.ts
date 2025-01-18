@@ -6,7 +6,6 @@ export interface BlockElement {
 
 export interface TextBlock {
   text: string
-  textSize: number
 }
 
 export interface ImageBlock {
