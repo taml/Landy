@@ -1,18 +1,16 @@
 <script setup lang="ts">
-  import { computed } from 'vue'
   import { useBuilderStore } from '@/stores/builder'
   import type { ImageBlock } from '@/types'
   import BlockHeader from '@/components/BlockHeader.vue'
+  import { imageSrc } from '@/utilities/utils'
 
-  const props = defineProps<{
+  defineProps<{
     content: ImageBlock
     index: number
   }>()
 
   const builderStore = useBuilderStore()
   const { setSingleBlock } = builderStore
-
-  const imageSrc = computed(() => new URL(props.content.src, import.meta.url).href)
 
 </script>
 
@@ -21,7 +19,7 @@
     <BlockHeader :block-index="index" />
     <div :class="['image-container', `align-${content.align}`]" :style="`padding: ${content.padding}px;`">
       <figure :style="`width: ${content.width}%;`">
-        <img :src="imageSrc" :alt="content.alt" width="100%"/>
+        <img :src="imageSrc(content.src)" :alt="content.alt" width="100%"/>
         <figcaption>{{ content.caption }}</figcaption>
       </figure>
     </div>
@@ -29,6 +27,11 @@
 </template>
 
 <style scoped>
+  section {
+    position: relative;
+    cursor: pointer;
+  }
+
   .image-container {
     display: flex;
   }

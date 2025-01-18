@@ -50,7 +50,7 @@
   @media screen and (max-width: 750px) {
     aside {
       max-width: 90px;
-      height: calc(100% - 58px);
+      height: calc(100% - 62px);
       position: absolute;
       left: 0;
       background: transparent;

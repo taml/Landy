@@ -17,7 +17,7 @@
     <main>
       <SidebarLeft />
       <BuilderContent />
-      <SidebarRight :toggle-editor="false" />
+      <SidebarRight />
     </main>
     <SaveModal v-if="showSaveModal" />
   </div>

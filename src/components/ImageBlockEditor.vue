@@ -1,7 +1,8 @@
 <script setup lang="ts">
-  import { ref, computed, watch } from 'vue'
+  import { computed } from 'vue'
   import { storeToRefs } from 'pinia'
   import { useBuilderStore } from '@/stores/builder'
+  import { imageSrc } from '@/utilities/utils'
 
   const builderStore = useBuilderStore()
   const { block, blockIndex } = storeToRefs(builderStore)
@@ -64,9 +65,6 @@
       alt: 'An image depicting a set of shapes which could be loosely interpreted as a product.',
     }
   ]
-
-  // Transform the image url so that it can be used dynamically in a component
-  const imageSrc = (src: string) => new URL(src, import.meta.url).href
 
   // Update the block when a new image is selected
   const selectImg = (imageScr: string, imageAlt: string) => {

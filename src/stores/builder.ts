@@ -34,7 +34,8 @@ export const useBuilderStore = defineStore('builder', () => {
   // Duplicate a selected block at the provided index and reinsert it straight after the original block
   const duplicateBlock = (index: number) => {
     const block = contentBlockList.value[index]
-    contentBlockList.value.splice(index, 0, block)
+    const duplicatedBlock = JSON.parse(JSON.stringify(block))
+    contentBlockList.value.splice(index, 0, duplicatedBlock)
   }
 
   // Delete a block at the provided index from the block list and reset single block item

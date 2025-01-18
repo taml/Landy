@@ -12,7 +12,9 @@
 
 <template>
   <nav>
-    <img class="logo" src="../assets/LandyLogo.svg" alt="Landy Logo" />
+    <a href="/">
+      <img class="logo" src="../assets/LandyLogo.svg" alt="Landy Logo" />
+    </a>
     <button class="btn" @click="handleSavePage">Save Page</button>
   </nav>
 </template>
