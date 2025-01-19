@@ -63,6 +63,8 @@
     background-color: #D9E5F3;
     max-width: 400px;
     height: 100vh;
+    transition-timing-function: ease-in;
+    transition: max-width 0.5s;
   }
 
   @media screen and (max-width: 750px) {
@@ -87,6 +89,7 @@
 
   .hide-editor .editor-content {
     padding: 0;
+    opacity: 0;
   }
 
   .btn-toggle {

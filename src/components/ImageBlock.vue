@@ -1,4 +1,5 @@
 <script setup lang="ts">
+  import { storeToRefs } from 'pinia'
   import { useBuilderStore } from '@/stores/builder'
   import type { ImageBlock } from '@/types'
   import BlockHeader from '@/components/BlockHeader.vue'
@@ -10,12 +11,13 @@
   }>()
 
   const builderStore = useBuilderStore()
+  const { blockIndex } = storeToRefs(builderStore)
   const { setSingleBlock } = builderStore
 
 </script>
 
 <template>
-  <section @click="setSingleBlock(index)">
+  <section :class="index === blockIndex && 'highlight'" @click="setSingleBlock(index)">
     <BlockHeader :block-index="index" />
     <div :class="['image-container', `align-${content.align}`]" :style="`padding: ${content.padding}px;`">
       <figure :style="`width: ${content.width}%;`">
@@ -30,10 +32,24 @@
   section {
     position: relative;
     cursor: pointer;
+    border-radius: 10px;
+  }
+
+  .highlight {
+    border: 2px solid #4832D7;
   }
 
   .image-container {
     display: flex;
+  }
+
+  .image-container figcaption {
+    padding: 0 5px;
+  }
+
+  .image-container img {
+    height: 100%;
+    border-radius: 8px;
   }
 
   .align-left {

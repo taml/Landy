@@ -18,28 +18,37 @@ export const useBuilderStore = defineStore('builder', () => {
   // Move a block at the provided index up by one position in the list
   const moveBlockUp = (index: number) => {
     if (index === 0) return
-    const block = contentBlockList.value[index]
+    const blockMoved = contentBlockList.value[index]
     contentBlockList.value.splice(index, 1)
-    contentBlockList.value.splice(index - 1, 0, block)
+    contentBlockList.value.splice(index - 1, 0, blockMoved)
+    // Check if the block is the active block (in the editor) and adjust the active block with the position
+    if(index === blockIndex.value) {
+      setSingleBlock(index - 1)
+    }
   }
 
   // Move a block at the provided index down by one position in the list
   const moveBlockDown = (index: number) => {
     if (index === contentBlockList.value.length - 1) return
-    const block = contentBlockList.value[index]
+    const blockMoved = contentBlockList.value[index]
     contentBlockList.value.splice(index, 1)
-    contentBlockList.value.splice(index + 1, 0, block)
+    contentBlockList.value.splice(index + 1, 0, blockMoved)
+    // Check if the block is the active block (in the editor) and adjust the active block with the position
+    if(index === blockIndex.value) {
+      setSingleBlock(index + 1)
+    }
   }
 
   // Duplicate a selected block at the provided index and reinsert it straight after the original block
   const duplicateBlock = (index: number) => {
-    const block = contentBlockList.value[index]
-    const duplicatedBlock = JSON.parse(JSON.stringify(block))
+    const blockMoved = contentBlockList.value[index]
+    const duplicatedBlock = JSON.parse(JSON.stringify(blockMoved))
     contentBlockList.value.splice(index, 0, duplicatedBlock)
   }
 
   // Delete a block at the provided index from the block list and reset single block item
   const deleteBlock = (index: number) => {
+    // Check if the block is the active block (in the editor) and remove it from there first
     if(index === blockIndex.value) {
       block.value = null
       blockIndex.value = -1
