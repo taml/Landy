@@ -14,7 +14,7 @@
 <template>
   <h2 class="heading">Page Background Colour</h2>
   <div class="color-option">
-    <span class="color-circle"><input type="color" v-model="customColor" @change="setBackgroundColor(customColor)"/></span>
+    <span class="color-circle"><input type="color" v-model="customColor" @change="setBackgroundColor(customColor)" aria-label="Colour Picker"/></span>
     <p class="color-selection" aria-label="Colour selected.">{{ backgroundColor }}</p>
   </div>
 </template>

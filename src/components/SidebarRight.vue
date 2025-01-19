@@ -48,7 +48,7 @@
 
 <template>
   <aside :class="toggleEditor && 'hide-editor'" :aria-expanded="!toggleEditor">
-    <button class="btn-toggle" @click="handleToggle"><font-awesome-icon :icon="['fas', `${toggleEditor ? 'chevron-left' : 'chevron-right'}`]" :aria-label="ariaLabel" /></button>
+    <button class="btn-toggle" @click="handleToggle" aria-label="Toggle Editor Panel"><font-awesome-icon :icon="['fas', `${toggleEditor ? 'chevron-left' : 'chevron-right'}`]" :aria-label="ariaLabel" /></button>
     <div class="editor-content">
       <h1 class="heading">Page Settings</h1>
       <PageColorPicker />
