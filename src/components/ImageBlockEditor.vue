@@ -50,19 +50,19 @@
   // Create a list of Image block pictures and partner them with relative alt descriptions
   const images = [
     {
-      src: '../assets/images/image-1.webp',
+      src: '/images/image-1.webp',
       alt: 'An image depicting a neon hello sign.',
     },
     {
-      src: '../assets/images/image-2.webp',
+      src: '/images/image-2.webp',
       alt: 'A colourful abstract image.',
     },
     {
-      src: '../assets/images/image-3.webp',
+      src: '/images/image-3.webp',
       alt: 'An image depicting an atmospheric mountain range.',
     },
     {
-      src: '../assets/images/image-4.webp',
+      src: '/images/image-4.webp',
       alt: 'An image depicting a set of shapes which could be loosely interpreted as a product.',
     }
   ]

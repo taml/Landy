@@ -16,7 +16,7 @@
       type: 'image', 
       name: 'Image Block', 
       content: {
-        src: '../assets/images/image-1.webp',
+        src: '/images/image-1.webp',
         alt: 'An image depicting a neon hello sign.',
         caption: '',
         width: 100,

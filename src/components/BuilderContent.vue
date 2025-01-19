@@ -56,7 +56,6 @@
     flex-direction: column;
     flex: 2;
     background: #fafafa;
-    padding: 40px;
     height: calc(100vh - 60px);
     overflow-y: auto;
   }
@@ -64,6 +63,7 @@
   .builder-content {
     flex: 1 1;
     box-shadow: 0px 4px 6px #e1e2e4;
+    margin: 40px;
   }
 
   .empty-content::before {
@@ -73,7 +73,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: url('../assets/images/LandyEmpty.svg');
+    background-image: url('/images/LandyEmpty.svg');
     background-repeat: no-repeat;
     background-position: center center;
     background-size: contain;
