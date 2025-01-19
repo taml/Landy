@@ -19,10 +19,6 @@ p, a, ul, ol, li, button, input {
   font-weight: 400;
 }
 
-figcaption {
-  color: #5b6875;
-}
-
 /* Override the Quill toolbar here as style is ignored at the component level */
 .ql-toolbar {
   background: #f3f6f8;

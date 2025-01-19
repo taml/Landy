@@ -49,6 +49,7 @@
 
   .image-container figcaption {
     padding: 0 5px;
+    color: #394452;
   }
 
   .image-container img {

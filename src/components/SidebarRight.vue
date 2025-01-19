@@ -48,7 +48,7 @@
   <aside :class="toggleEditor && 'hide-editor'">
     <button class="btn-toggle" @click="handleToggle"><font-awesome-icon :icon="['fas', `${toggleEditor ? 'chevron-left' : 'chevron-right'}`]" /></button>
     <div class="editor-content">
-      <h5 class="heading">Page Settings</h5>
+      <h1 class="heading">Page Settings</h1>
       <PageColorPicker />
       <TextBlockEditor v-if="block?.type === 'text'" />
       <ImageBlockEditor v-else-if="block?.type === 'image'" />
@@ -117,7 +117,7 @@
   }
 
   .heading {
-    color: #394452;
+    color: #010101;
     font-size: 16px;
     font-weight: 700;
     text-transform: uppercase;

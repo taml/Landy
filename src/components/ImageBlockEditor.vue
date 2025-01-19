@@ -79,7 +79,7 @@
 </script>
 
 <template>
-  <h6 class="heading">Edit this Image Block</h6>
+  <h2 class="heading">Edit this Image Block</h2>
   <div class="image-thumbnails-container">
     <p class="label">Select Image</p>
     <div class="image-thumbnails">
@@ -94,7 +94,7 @@
   </div>
   <div class="image-input-container">
     <label class="label" aria-labelledby="imageRange">Image Width</label>
-    <input id="imageRange" class="slider" type="range" min="25" max="100" v-model="imageWidth">
+    <input id="imageRange" class="slider" type="range" min="25" max="100" step="5" v-model="imageWidth">
   </div>
   <div class="image-align-container">
     <p class="label">Align Image</p>
@@ -106,13 +106,13 @@
   </div>
   <div class="image-input-container">
     <label class="label" aria-labelledby="imagePadding">Image Padding</label>
-    <input id="imagePadding" class="slider" type="range" min="0" max="100" v-model="imagePadding">
+    <input id="imagePadding" class="slider" type="range" min="0" max="100" step="10" v-model="imagePadding">
   </div>
 </template>
 
 <style scoped>
   .heading {
-    color: #394452;
+    color: #010101;
     font-size: 14px;
     font-weight: 700;
     text-transform: uppercase;
@@ -123,7 +123,7 @@
   }
 
   .label {
-    color: #5b6875;
+    color: #394452;
     font-family: 'DM Sans', sans-serif;
     font-size: 14px;
     font-weight: 700;

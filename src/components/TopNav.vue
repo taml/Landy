@@ -23,7 +23,7 @@
   nav {
     display: flex;
     justify-content: space-between;
-    background: #7c8ea2;
+    background: #010101;
     padding: 10px 20px;
   }
 

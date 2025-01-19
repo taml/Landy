@@ -12,7 +12,7 @@
 </script>
 
 <template>
-  <h6 class="heading">Page Background Colour</h6>
+  <h2 class="heading">Page Background Colour</h2>
   <div class="color-option">
     <span class="color-circle"><input type="color" v-model="customColor" @change="setBackgroundColor(customColor)"/></span>
     <p class="color-selection" aria-label="Colour selected.">{{ backgroundColor }}</p>
@@ -21,7 +21,7 @@
 
 <style scoped>
   .heading {
-    color: #394452;
+    color: #010101;
     font-size: 14px;
     font-weight: 700;
     text-transform: uppercase;
@@ -56,7 +56,7 @@
   }
 
   .color-selection {
-    color: #5b6875;
+    color: #394452;
     font-size: 14px;
     font-weight: 500;
     margin-top: 5px;

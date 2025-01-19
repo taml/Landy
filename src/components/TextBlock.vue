@@ -44,7 +44,7 @@
   }
 
   .text-block p {
-    color: #5b6875;
+    color: #394452;
   }
 
 </style>

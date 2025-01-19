@@ -30,7 +30,7 @@
 
 <template>
   <aside aria-label="Block menu.">
-    <h6 class="heading">Block Picker</h6>
+    <h2 class="heading">Block Picker</h2>
     <draggable :list="blockList" :element="'div'" :group="{ name: 'blocks', pull: 'clone', put: false }" :clone="(item: BlockElement) => ({ ...item })" :sort="false" item-key="index" role="list">
       <template #item="{element}">
         <SimpleBlock :blockType="element.type" :name="element.name" />
@@ -63,7 +63,7 @@
   }
 
   .heading {
-    color: #394452;
+    color: #010101;
     font-size: 14px;
     font-weight: 700;
     text-transform: uppercase;

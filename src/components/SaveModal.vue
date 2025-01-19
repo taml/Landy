@@ -78,7 +78,7 @@
   }
 
   .heading {
-    color: #394452;
+    color: #010101;
     font-size: 18px;
     font-weight: 700;
     text-transform: uppercase;
@@ -99,7 +99,7 @@
   }
 
   .modal-body label {
-    color: #5b6875;
+    color: #394452;
     font-family: 'DM Sans', sans-serif;
     font-size: 14px;
     font-weight: 700;
@@ -110,7 +110,7 @@
     background: #f3f6f8;
     border: 2px solid #846EFF;
     border-radius: 8px;
-    color: #5b6875;
+    color: #394452;
     font-size: 14px;
     padding: 10px;
   }

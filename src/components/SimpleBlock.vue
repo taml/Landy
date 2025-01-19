@@ -41,7 +41,7 @@
   }
 
   .simple-block-text {
-    color: #5b6875;
+    color: #394452;
     margin-left: 5px;
   }
 

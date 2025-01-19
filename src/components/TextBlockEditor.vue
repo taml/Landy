@@ -57,13 +57,13 @@
 </script>
 
 <template>
-  <h6 class="heading">Edit this Text Block</h6>
+  <h2 class="heading">Edit this Text Block</h2>
   <div class="editor-container" ref="editorContainer" aria-label="Text block input area."></div>
 </template>
 
 <style scoped>
   .heading {
-    color: #394452;
+    color: #010101;
     font-size: 14px;
     font-weight: 700;
     text-transform: uppercase;
