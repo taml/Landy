@@ -17,7 +17,7 @@
 </script>
 
 <template>
-  <section :class="index === blockIndex && 'highlight'" @click="setSingleBlock(index)">
+  <section :class="[index === blockIndex && 'highlight', content.caption.length > 0 && 'caption-spacing']" @click="setSingleBlock(index)">
     <BlockHeader :block-index="index" />
     <div :class="['image-container', `align-${content.align}`]" :style="`padding: ${content.padding}px;`">
       <figure :style="`width: ${content.width}%;`">
@@ -37,6 +37,10 @@
 
   .highlight {
     border: 2px solid #4832D7;
+  }
+
+  .caption-spacing {
+    margin-bottom: 30px;
   }
 
   .image-container {

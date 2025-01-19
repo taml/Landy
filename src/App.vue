@@ -33,5 +33,6 @@
   main {
     display: flex;
     flex: 1;
+    background: #fafafa;
   }
 </style>

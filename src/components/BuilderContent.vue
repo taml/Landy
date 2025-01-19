@@ -38,7 +38,7 @@
     flex: 2;
     background: #fafafa;
     padding: 40px;
-    height: 92vh;
+    height: calc(100vh - 60px);
     overflow-y: auto;
   }
 
