@@ -4,13 +4,32 @@
   import ImageElement from '@/components/ImageBlock.vue'
   import { storeToRefs } from 'pinia'
   import { useBuilderStore } from '@/stores/builder'
+  import type { BlockElement } from '@/types'
+  import type { SortableEvent } from 'sortablejs'
 
   const builderStore = useBuilderStore()
   const { contentBlockList, backgroundColor } = storeToRefs(builderStore)
   const { setSingleBlock } = builderStore
 
+  // Create an interface that extends the Sortable.js types to include the Vue draggable types
+  interface DraggableEvent extends SortableEvent {
+    added?: {
+      element: BlockElement
+      newIndex: number
+    }
+    removed?: {
+      element: BlockElement
+      oldIndex: number
+    }
+    moved?: {
+      element: BlockElement
+      oldIndex: number
+      newIndex: number
+    }
+  }
+
   // Update the selected block to display in the editor panel
-  const updateEditor = (event: any) => {
+  const updateEditor = (event: DraggableEvent) => {
     if(event.added) {
       setSingleBlock(event.added.newIndex)
     }

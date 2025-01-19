@@ -15,7 +15,7 @@
   <header>
     <div>
       <button class="btn-action" v-if="blockIndex > 0" @click.stop="moveBlockUp(blockIndex)" aria-label="Move block up."><font-awesome-icon :icon="['fas', 'chevron-up']" aria-label="An icon depicting an up arrow." /></button>
-      <button class="btn-action" v-if="blockIndex < (contentBlockList.length - 1)" @click.stop="moveBlockDown(blockIndex)" aria-label="Move block down."><font-awesome-icon :icon="['fas', 'chevron-down']"aria-label="An icon depicting a down arrow." /></button>
+      <button class="btn-action" v-if="blockIndex < (contentBlockList.length - 1)" @click.stop="moveBlockDown(blockIndex)" aria-label="Move block down."><font-awesome-icon :icon="['fas', 'chevron-down']" aria-label="An icon depicting a down arrow." /></button>
       <button class="btn-action" @click.stop="duplicateBlock(blockIndex)"><font-awesome-icon :icon="['fas', 'clone']" aria-label="An icon depicting two squares representing cloning." /> Duplicate</button>
       <button class="btn-action" @click.stop="deleteBlock(blockIndex)"><font-awesome-icon :icon="['fas', 'trash-can']" aria-label="An icon depicting a trash can." /> Remove</button>
     </div>

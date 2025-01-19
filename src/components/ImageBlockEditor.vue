@@ -3,6 +3,7 @@
   import { storeToRefs } from 'pinia'
   import { useBuilderStore } from '@/stores/builder'
   import { imageSrc } from '@/utilities/utils'
+  import type { ImageBlock } from '@/types'
 
   const builderStore = useBuilderStore()
   const { block, blockIndex } = storeToRefs(builderStore)
@@ -16,7 +17,7 @@
   /** Get the image caption as a reactive computed value and update the relative image
       block when the caption text changes */ 
   const imageCaption = computed({
-    get: () => isImageBlock.value ? (block.value!.content as any).caption : '',
+    get: () => isImageBlock.value ? (block.value!.content as ImageBlock).caption : '',
     set: (newValue) => {
       if (isImageBlock.value) {
         updateBlock(blockIndex.value, { ...block.value!.content, caption: newValue })
@@ -27,7 +28,7 @@
   /** Get the image width as a reactive computed value and update the relative image
       block when the width text changes */ 
   const imageWidth = computed({
-    get: () => isImageBlock.value ? (block.value!.content as any).width : 100,
+    get: () => isImageBlock.value ? (block.value!.content as ImageBlock).width : 100,
     set: (newValue) => {
       if (isImageBlock.value) {
         updateBlock(blockIndex.value, { ...block.value!.content, width: newValue })
@@ -38,7 +39,7 @@
   /** Get the image padding as a reactive computed value and update the relative image
       block when the padding text changes */ 
   const imagePadding = computed({
-    get: () => isImageBlock.value ? (block.value!.content as any).padding : 0,
+    get: () => isImageBlock.value ? (block.value!.content as ImageBlock).padding : 0,
     set: (newValue) => {
       if (isImageBlock.value) {
         updateBlock(blockIndex.value, { ...block.value!.content, padding: newValue })
@@ -83,7 +84,7 @@
   <div class="image-thumbnails-container">
     <p class="label">Select Image</p>
     <div class="image-thumbnails">
-      <div v-for="image in images" @click="selectImg(image.src, image.alt)">
+      <div v-for="(image, index) in images" @click="selectImg(image.src, image.alt)" :key="index">
         <img :src="imageSrc(image.src)" :alt="image.alt"/>
       </div>
     </div>
