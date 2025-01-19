@@ -23,6 +23,41 @@ import './commands'
 import '@/assets/main.css'
 
 import { mount } from 'cypress/vue'
+import { createPinia } from 'pinia'
+
+// Font Awesome imports
+import { library } from "@fortawesome/fontawesome-svg-core"
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome"
+import { 
+  faImage, 
+  faFont, 
+  faChevronUp, 
+  faChevronDown, 
+  faChevronLeft, 
+  faChevronRight, 
+  faClone, 
+  faTrashCan, 
+  faAlignLeft, 
+  faAlignCenter, 
+  faAlignRight, 
+  faXmark 
+} from "@fortawesome/free-solid-svg-icons"
+
+// Add icons to library
+library.add(
+  faImage, 
+  faFont, 
+  faChevronUp, 
+  faChevronDown, 
+  faChevronLeft, 
+  faChevronRight, 
+  faClone, 
+  faTrashCan, 
+  faAlignLeft, 
+  faAlignCenter, 
+  faAlignRight, 
+  faXmark
+)
 
 // Augment the Cypress namespace to include type definitions for
 // your custom command.
@@ -37,7 +72,26 @@ declare global {
   }
 }
 
-Cypress.Commands.add('mount', mount)
+// Update the mount command to include Pinia
+Cypress.Commands.add('mount', (component, options = {}) => {
+  // Create a fresh Pinia instance
+  const pinia = createPinia()
+
+  // Merge options with defaults
+  const componentOptions = {
+    ...options,
+    global: {
+      ...options.global,
+      plugins: [...(options.global?.plugins || []), pinia],
+      components: {
+        'font-awesome-icon': FontAwesomeIcon,
+        ...(options.global?.components || {})
+      }
+    }
+  }
+
+  return mount(component, componentOptions)
+})
 
 // Example use:
 // cy.mount(MyComponent)

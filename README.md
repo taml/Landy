@@ -1,6 +1,22 @@
-# landy
+# 🧱 Landy
 
-This template should help get you started developing with Vue 3 in Vite.
+This project utilises JavaScript, TypeScript, Vue, HTML and CSS to create a simple landing page builder which features `Image` and `Text` blocks. 
+
+The page content can be saved as a log to the console which features block types, order and more. 
+
+This project uses some images courtesy of [Unsplash](https://unsplash.com/) and icons from [Font Awesome](https://fontawesome.com/).
+
+#### Features
++ Text and Image blocks which can be reordered, duplicated and deleted ✔️
++ A custom page template background colour ✔️
++ A rich text block editor (Quill) ✔️
++ Image block adjustments - captions, padding, alignment and width  ✔️
++ Adaptive, responsive design ✔️
++ Accessibility Consideration (colour ratios and aria labels) ✔️
++ Local Store (Pinia) for managing state ✔️
++ Basic component testing using Cypress ✔️
+
+Instructions for running and building the project can be found below.
 
 ## Recommended IDE Setup
 
