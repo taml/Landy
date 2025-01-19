@@ -33,6 +33,9 @@
     if(event.added) {
       setSingleBlock(event.added.newIndex)
     }
+    if(event.moved) {
+      setSingleBlock(event.moved.newIndex)
+    }
   }
 
 </script>

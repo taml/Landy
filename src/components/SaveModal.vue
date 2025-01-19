@@ -16,15 +16,18 @@
     toggleSaveModal(false)
   }
 
-  // Create object of page data including page name, colour and block items 
+  // Create object of page data including page name, colour and block items along with their position
   const logPage = () => {
     const pageData = {
       pageName: pageName.value,
       pageBackgroundColor: backgroundColor.value,
-      pageBlocks: contentBlockList.value
+      pageBlocks: contentBlockList.value.map((block, index) => ({
+        blockPosition: index,
+        ...block,
+      }))
     }
     // Convert page object to JSON and log out contents
-    console.log(JSON.parse(JSON.stringify(pageData)))
+    console.log(JSON.stringify(pageData))
   }
 
   onMounted(() => {
