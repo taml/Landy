@@ -14,18 +14,20 @@ This project uses some images courtesy of [Unsplash](https://unsplash.com/) and 
 + Adaptive, responsive design ✔️
 + Accessibility Consideration (colour ratios and aria labels) ✔️
 + Local Store (Pinia) for managing state ✔️
-+ Basic component testing using Cypress ✔️
++ Basic component testing and save page end to end test using Cypress ✔️
 
 Instructions for running and building the project can be found below.
 
 
 ## Project Setup
 
+### Install the Project
+
 ```sh
 npm install
 ```
 
-### Compile and Hot-Reload for Development
+### To Run the Project (Compile and Hot-Reload for Development)
 
 ```sh
 npm run dev

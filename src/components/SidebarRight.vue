@@ -42,11 +42,13 @@
     window.removeEventListener('resize', () => {windowSizeWidth.value = window.innerWidth})
   })
 
+  const ariaLabel = toggleEditor.value ? 'An icon depicting a chevron/arrow pointing left.' : 'An icon depicting a chevron/arrow pointing right.'
+
 </script>
 
 <template>
-  <aside :class="toggleEditor && 'hide-editor'">
-    <button class="btn-toggle" @click="handleToggle"><font-awesome-icon :icon="['fas', `${toggleEditor ? 'chevron-left' : 'chevron-right'}`]" /></button>
+  <aside :class="toggleEditor && 'hide-editor'" :aria-expanded="!toggleEditor">
+    <button class="btn-toggle" @click="handleToggle"><font-awesome-icon :icon="['fas', `${toggleEditor ? 'chevron-left' : 'chevron-right'}`]" :aria-label="ariaLabel" /></button>
     <div class="editor-content">
       <h1 class="heading">Page Settings</h1>
       <PageColorPicker />
